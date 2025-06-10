@@ -10,8 +10,9 @@
     --spacing-unit: 1rem;
     --border-radius: 8px;
     --transition: all 0.3s ease;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.4);
+    --shadow: 0 4px 16px rgba(0,0,0,0.25);
+    --shadow-hover: 0 8px 32px rgba(0,0,0,0.35);
+    --shadow-glow: 0 0 12px 2px var(--primary-blue), 0 2px 16px rgba(0,0,0,0.25);
     --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.5);
     --shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -195,7 +196,7 @@ nav {
 .hero-content h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    text-shadow: var(--shadow-text);
+    text-shadow: 0 0 16px var(--primary-blue), 2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .tagline {
@@ -209,7 +210,7 @@ nav {
     padding: 6rem 0;
     text-align: center;
     position: relative;
-    background: var(--black);
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 80%, var(--dark-gray) 100%);
     scroll-margin-top: 80px;
 }
 
@@ -217,11 +218,14 @@ nav {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    width: 60vw;
     height: 2px;
-    background: linear-gradient(to right, transparent, var(--primary-blue), transparent);
-    opacity: 0.3;
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+    opacity: 0.25;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    filter: blur(0.5px);
 }
 
 .section h2 {
@@ -260,8 +264,8 @@ nav {
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-strong);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-hover), var(--shadow-glow);
     border-color: var(--primary-blue);
 }
 
@@ -317,8 +321,8 @@ nav {
 }
 
 .value-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-strong);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-hover), var(--shadow-glow);
     border-color: var(--primary-blue);
 }
 
@@ -341,6 +345,9 @@ nav {
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
+    box-shadow: 0 -2px 24px 0 var(--primary-blue), 0 -2px 16px 0 rgba(0,0,0,0.25);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 
 .cta-button {
@@ -351,16 +358,18 @@ nav {
     text-decoration: none;
     border-radius: var(--border-radius);
     font-weight: 600;
-    transition: var(--transition);
+    transition: box-shadow 0.3s, background 0.3s, color 0.3s, transform 0.2s;
     border: 2px solid var(--primary-blue);
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18), 0 0 0 0 var(--primary-blue);
+    position: relative;
+    overflow: hidden;
 }
 
-.cta-button:hover {
-    background-color: var(--secondary-blue);
+.cta-button:hover, .cta-button:focus {
+    background: var(--primary-blue);
     color: var(--white);
-    border-color: var(--secondary-blue);
-    box-shadow: var(--shadow-strong);
+    box-shadow: 0 4px 24px 0 var(--primary-blue), 0 2px 16px 0 rgba(0,0,0,0.25);
+    transform: translateY(-2px) scale(1.03);
 }
 
 /* Footer */
@@ -376,6 +385,9 @@ footer {
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
+    box-shadow: 0 -2px 24px 0 var(--primary-blue), 0 -2px 16px 0 rgba(0,0,0,0.25);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 
 .footer-logo {
@@ -651,8 +663,8 @@ footer {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-strong);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-hover), var(--shadow-glow);
 }
 
 /* Service Card (extends Card) */
@@ -709,4 +721,164 @@ footer {
 /* Adjust main content to account for fixed header */
 main {
     padding-top: 80px; /* Height of the header */
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: var(--dark-gray);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.form-group label {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--border-radius);
+    background: var(--black);
+    color: var(--white);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border 0.2s;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-blue), 0 2px 8px rgba(0,0,0,0.18);
+    border-color: var(--primary-blue);
+}
+
+.contact-form .cta-button {
+    margin-top: 0.5rem;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+/* Responsive: Contact Form */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .form-group label {
+        font-size: 0.98rem;
+    }
+    .contact-form .cta-button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.98rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* Enhanced Shadows and Visual Effects */
+:root {
+    --shadow: 0 4px 16px rgba(0,0,0,0.25);
+    --shadow-hover: 0 8px 32px rgba(0,0,0,0.35);
+    --shadow-glow: 0 0 12px 2px var(--primary-blue), 0 2px 16px rgba(0,0,0,0.25);
+}
+
+/* Card and Section Glow */
+.card, .value-card, .service-card, .contact-form {
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.card:hover, .value-card:hover, .service-card:hover, .contact-form:hover {
+    box-shadow: var(--shadow-hover), var(--shadow-glow);
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* Section Glow Divider */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60vw;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+    opacity: 0.25;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    filter: blur(0.5px);
+}
+
+/* Button Glow and Hover */
+.cta-button {
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18), 0 0 0 0 var(--primary-blue);
+    transition: box-shadow 0.3s, background 0.3s, color 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.cta-button:hover, .cta-button:focus {
+    background: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 4px 24px 0 var(--primary-blue), 0 2px 16px 0 rgba(0,0,0,0.25);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Input Focus Glow */
+.form-group input:focus, .form-group textarea:focus {
+    box-shadow: 0 0 0 2px var(--primary-blue), 0 2px 8px rgba(0,0,0,0.18);
+    border-color: var(--primary-blue);
+}
+
+/* Nav Link Hover Glow */
+.nav-links a:hover, .nav-links a:focus {
+    color: var(--primary-blue);
+    text-shadow: 0 0 8px var(--primary-blue), var(--shadow-text);
+}
+
+/* Hero Section Glow */
+.hero-content h1 {
+    text-shadow: 0 0 16px var(--primary-blue), 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Footer Glow */
+.footer-content {
+    box-shadow: 0 -2px 24px 0 var(--primary-blue), 0 -2px 16px 0 rgba(0,0,0,0.25);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Subtle Section Gradient */
+.section {
+    background: linear-gradient(180deg, rgba(0,0,0,0.95) 80%, var(--dark-gray) 100%);
 } 
