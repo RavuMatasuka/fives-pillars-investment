@@ -1301,96 +1301,69 @@ main {
   transform: scale(1.08);
 }
 
-/* Desktop: show grid, hide mobile carousel */
-.services-carousel-mobile { display: none; }
-.services-grid { display: grid; }
+/* Correctly center the bottom two service cards in the second row of the grid */
+@media (min-width: 601px) {
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    justify-items: center;
+    align-items: stretch;
+  }
+  /* Place the 4th card in column 2, 5th in column 3, both in row 2 */
+  .services-grid > .service-card:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 2;
+    margin-right: -1.25rem; /* Move right card closer to center */
+  }
+  .services-grid > .service-card:nth-child(5) {
+    grid-column: 3 / 4;
+    grid-row: 2;
+    margin-left: -1.25rem; /* Move left card closer to center */
+  }
+}
 
-/* Mobile: show carousel, hide grid */
+/* Show services carousel only on mobile */
 @media (max-width: 600px) {
   .services-grid { display: none !important; }
   .services-carousel-mobile { display: flex !important; }
 }
-.services-carousel-mobile {
-  display: flex !important;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 2rem 0 1rem 0;
-  width: 100%;
-  min-height: 220px;
-  position: relative;
-  box-sizing: border-box;
-}
-.services-carousel-mobile .carousel-btn {
-  background: var(--primary-blue);
-  color: var(--white);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.3rem;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  transition: background 0.2s, transform 0.2s;
-  z-index: 2;
-  margin: 0 0.2rem;
-  align-self: center;
-}
-.services-carousel-mobile .carousel-track {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  width: auto;
-  box-sizing: border-box;
-}
-.service-card-slide {
-  width: 100%;
-  max-width: 340px;
-  min-width: 0;
-  margin: 0 auto;
-  display: none !important;
-  transition: opacity 0.3s, transform 0.3s;
-  box-shadow: var(--shadow);
-  border-radius: 18px;
-  background: var(--dark-gray);
-  padding: 1.2rem 1rem 1rem 1rem;
-  text-align: center;
-  height: auto;
-  box-sizing: border-box;
-}
-.service-card-slide.active {
-  display: block !important;
-  opacity: 1;
-  transform: scale(1.03);
-  margin: 0 auto;
-}
-.service-card-slide h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-.service-card-slide ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-.service-card-slide li {
-  margin-bottom: 0.7rem;
-  font-size: 1.08rem;
-  position: relative;
-  padding-left: 0;
-}
 
-@media (max-width: 600px) {
-  .services-carousel-mobile { display: flex !important; }
-  .services-carousel-mobile .carousel-track { display: block !important; }
-  .service-card-slide { display: none !important; }
-  .service-card-slide.active { display: block !important; }
+/* Force-hide the mobile services carousel on desktop (fixes stacking bug) */
+@media (min-width: 601px) {
+  .services-carousel-mobile {
+    display: none !important; /* Hide mobile carousel on desktop */
+  }
 }
 
 body, html, main {
   overflow-x: hidden !important;
+}
+
+@media (min-width: 601px) {
+  .service-card.placeholder {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 601px) {
+  .services-bottom-row {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Adjust this value for how close you want them */
+    margin-top: 2.5rem;
+  }
+  .services-bottom-row .service-card {
+    margin: 0;
+    width: 100%;
+    max-width: 350px;
+  }
 } 
