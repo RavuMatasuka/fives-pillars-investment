@@ -81,10 +81,87 @@
             </div>
         </section>
 
+        <!-- Founders Section -->
+        <section id="founders" class="section founders-section component">
+            <h2>Meet the Founders</h2>
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <img src="images/Josh V Taubale (Business Finance & Rugby Director).jpg" alt="Josh V Taubale" class="founder-photo" data-founder="Josh V Taubale">
+                    <h3>Josh V Taubale</h3>
+                    <p class="founder-title">Business Finance & Rugby Director</p>
+                </div>
+                <div class="founder-card">
+                    <img src="images/Joseva Vakacokaivalu (Consultant Advisor Director, MBE).jpg" alt="Joseva Vakacokaivalu" class="founder-photo" data-founder="Joseva Vakacokaivalu">
+                    <h3>Joseva Vakacokaivalu</h3>
+                    <p class="founder-title">Consultant Advisor Director, MBE</p>
+                </div>
+                <div class="founder-card">
+                    <img src="images/Illy Raderua (Property Advisor Director).jpg" alt="Illy Raderua" class="founder-photo" data-founder="Illy Raderua">
+                    <h3>Illy Raderua</h3>
+                    <p class="founder-title">Property Advisor Director</p>
+                </div>
+                <div class="founder-card">
+                    <img src="images/Ilaitia T Ravuwai (Catering & Hospitality Director).jpg" alt="Ilaitia T Ravuwai" class="founder-photo" data-founder="Ilaitia T Ravuwai">
+                    <h3>Ilaitia T Ravuwai</h3>
+                    <p class="founder-title">Catering & Hospitality Director</p>
+                </div>
+                <div class="founder-card">
+                    <img src="images/Bill Cama (Health & Safety Director).jpg" alt="Bill Cama" class="founder-photo" data-founder="Bill Cama">
+                    <h3>Bill Cama</h3>
+                    <p class="founder-title">Health & Safety Director</p>
+                </div>
+            </div>
+        </section>
+        <!-- End Founders Section -->
+
+        <!-- Mobile Founders Carousel (hidden on desktop) -->
+        <div class="founders-carousel-mobile">
+            <button class="carousel-btn prev" aria-label="Previous Founder">&#8592;</button>
+            <div class="carousel-track">
+                <div class="founder-card-slide active">
+                    <img src="images/Josh V Taubale (Business Finance & Rugby Director).jpg" alt="Josh V Taubale" class="founder-photo" data-founder="Josh V Taubale">
+                    <h3>Josh V Taubale</h3>
+                    <p class="founder-title">Business Finance & Rugby Director</p>
+                </div>
+                <div class="founder-card-slide">
+                    <img src="images/Joseva Vakacokaivalu (Consultant Advisor Director, MBE).jpg" alt="Joseva Vakacokaivalu" class="founder-photo" data-founder="Joseva Vakacokaivalu">
+                    <h3>Joseva Vakacokaivalu</h3>
+                    <p class="founder-title">Consultant Advisor Director, MBE</p>
+                </div>
+                <div class="founder-card-slide">
+                    <img src="images/Illy Raderua (Property Advisor Director).jpg" alt="Illy Raderua" class="founder-photo" data-founder="Illy Raderua">
+                    <h3>Illy Raderua</h3>
+                    <p class="founder-title">Property Advisor Director</p>
+                </div>
+                <div class="founder-card-slide">
+                    <img src="images/Ilaitia T Ravuwai (Catering & Hospitality Director).jpg" alt="Ilaitia T Ravuwai" class="founder-photo" data-founder="Ilaitia T Ravuwai">
+                    <h3>Ilaitia T Ravuwai</h3>
+                    <p class="founder-title">Catering & Hospitality Director</p>
+                </div>
+                <div class="founder-card-slide">
+                    <img src="images/Bill Cama (Health & Safety Director).jpg" alt="Bill Cama" class="founder-photo" data-founder="Bill Cama">
+                    <h3>Bill Cama</h3>
+                    <p class="founder-title">Health & Safety Director</p>
+                </div>
+            </div>
+            <button class="carousel-btn next" aria-label="Next Founder">&#8594;</button>
+        </div>
+
+        <!-- Founder Image Modal (hidden by default) -->
+        <div id="founder-modal" class="founder-modal" aria-modal="true" role="dialog" tabindex="-1" style="display:none;">
+            <div class="founder-modal-backdrop"></div>
+            <div class="founder-modal-content">
+                <button class="founder-modal-close" aria-label="Close Founder Image">&times;</button>
+                <img src="" alt="Founder Fullscreen" class="founder-modal-img">
+                <div class="founder-modal-caption"></div>
+            </div>
+        </div>
+
         <!-- Services Section -->
         <section id="services" class="section component">
             <div class="container">
                 <h2>Our Services</h2>
+                <!-- Desktop Services Grid (hidden on mobile) -->
                 <div class="services-grid">
                     <div class="service-card">
                         <h3>F - Food & Beverage</h3>
@@ -129,6 +206,55 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Mobile Services Carousel (hidden on desktop) -->
+                <div class="services-carousel-mobile">
+                    <button class="carousel-btn prev" aria-label="Previous Service">&#8592;</button>
+                    <div class="carousel-track">
+                        <div class="service-card-slide active">
+                            <h3>F - Food & Beverage</h3>
+                            <ul>
+                                <li>Restaurant Services</li>
+                                <li>Catering</li>
+                                <li>Private Chef</li>
+                                <li>Bar Service</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-slide">
+                            <h3>I - Infrastructure & Equipment</h3>
+                            <ul>
+                                <li>Catering Hire Gear</li>
+                                <li>Portable Toilets</li>
+                                <li>Ovens & Equipment</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-slide">
+                            <h3>V - Venue Solutions</h3>
+                            <ul>
+                                <li>Marquees</li>
+                                <li>Scaffolding</li>
+                                <li>Site Setup</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-slide">
+                            <h3>E - Event Management</h3>
+                            <ul>
+                                <li>Planning & Logistics</li>
+                                <li>Waitstaff & Chefs</li>
+                                <li>Consultants</li>
+                                <li>Funeral Directors</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-slide">
+                            <h3>S - Strategic Consultancy</h3>
+                            <ul>
+                                <li>Business Start-up</li>
+                                <li>Scale Operations</li>
+                                <li>Improvement Strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" aria-label="Next Service">&#8594;</button>
+                </div>
             </div>
         </section>
 
@@ -136,34 +262,38 @@
         <section id="values" class="section component">
             <div class="container">
                 <h2>Our Pillars of Excellence</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <h3>P - Professionalism</h3>
-                        <p>Delivering excellence in every interaction</p>
+                <div class="values-grid-rows">
+                    <div class="values-row">
+                        <div class="value-card">
+                            <h3>P - Professionalism</h3>
+                            <p>Delivering excellence in every interaction</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>I - Integrity</h3>
+                            <p>Building trust through honest practices</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>L - Leadership</h3>
+                            <p>Guiding with vision and purpose</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>L - Logistics</h3>
+                            <p>Mastering the art of execution</p>
+                        </div>
                     </div>
-                    <div class="value-card">
-                        <h3>I - Integrity</h3>
-                        <p>Building trust through honest practices</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>L - Leadership</h3>
-                        <p>Guiding with vision and purpose</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>L - Logistics</h3>
-                        <p>Mastering the art of execution</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>A - Accountability</h3>
-                        <p>Taking ownership of our commitments</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>R - Reliability</h3>
-                        <p>Consistently delivering on promises</p>
-                    </div>
-                    <div class="value-card">
-                        <h3>S - Service</h3>
-                        <p>Exceeding expectations in every detail</p>
+                    <div class="values-row values-row-bottom">
+                        <div class="value-card">
+                            <h3>S - Service</h3>
+                            <p>Exceeding expectations in every detail</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>A - Accountability</h3>
+                            <p>Taking ownership of our commitments</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>R - Reliability</h3>
+                            <p>Consistently delivering on promises</p>
+                        </div>
                     </div>
                 </div>
             </div>
