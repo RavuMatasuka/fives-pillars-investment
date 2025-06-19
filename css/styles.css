@@ -37,6 +37,8 @@ body {
     overflow-x: hidden;
     padding-top: 70px; /* Add padding to account for fixed header */
     position: relative; /* For honeycomb background */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Honeycomb Background */
@@ -64,9 +66,29 @@ body::before {
         0 0,
         calc(var(--honeycomb-size) * 0.5) calc(var(--honeycomb-size) * 0.865);
     animation: honeyShimmer 120s linear infinite;
+    -webkit-animation: honeyShimmer 120s linear infinite;
 }
 
 @keyframes honeyShimmer {
+    0% {
+        background-position: 0 0,
+            0 0,
+            calc(var(--honeycomb-size) * 0.5) calc(var(--honeycomb-size) * 0.865),
+            calc(var(--honeycomb-size) * 0.5) calc(var(--honeycomb-size) * 0.865),
+            0 0,
+            calc(var(--honeycomb-size) * 0.5) calc(var(--honeycomb-size) * 0.865);
+    }
+    100% {
+        background-position: calc(var(--honeycomb-size) * 2) calc(var(--honeycomb-size) * 1.73),
+            calc(var(--honeycomb-size) * 2) calc(var(--honeycomb-size) * 1.73),
+            calc(var(--honeycomb-size) * 2.5) calc(var(--honeycomb-size) * 2.595),
+            calc(var(--honeycomb-size) * 2.5) calc(var(--honeycomb-size) * 2.595),
+            calc(var(--honeycomb-size) * 2) calc(var(--honeycomb-size) * 1.73),
+            calc(var(--honeycomb-size) * 2.5) calc(var(--honeycomb-size) * 2.595);
+    }
+}
+
+@-webkit-keyframes honeyShimmer {
     0% {
         background-position: 0 0,
             0 0,
