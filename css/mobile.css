@@ -1,6 +1,6 @@
-/* Mobile Styles */
+/* Optimized Mobile Styles */
 
-/* Hamburger Menu */
+/* Mobile Menu */
 .mobile-menu-button {
     display: none;
     background: none;
@@ -20,7 +20,6 @@
     transform-origin: center;
 }
 
-/* Hamburger Menu Animation */
 .mobile-menu-button.active span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -33,20 +32,16 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Base Mobile Styles */
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
     /* Navigation */
-    nav {
-        justify-content: flex-end !important;
-    }
-    .mobile-menu-button {
-        display: block !important;
-        position: fixed !important;
-        top: 15px !important;
-        right: 15px !important;
-        left: auto !important;
-        margin: 0 !important;
-        z-index: 10000 !important;
+    nav { justify-content: flex-end !important; }
+    .mobile-menu-button { 
+        display: block !important; 
+        position: fixed !important; 
+        top: 15px !important; 
+        right: 15px !important; 
+        z-index: 10000 !important; 
     }
     .nav-links {
         display: none;
@@ -66,10 +61,7 @@
         border-top-right-radius: 12px;
         border-bottom-right-radius: 12px;
     }
-    .nav-links.active {
-        display: flex;
-        transform: translateX(0);
-    }
+    .nav-links.active { display: flex; transform: translateX(0); }
     .nav-links a {
         height: auto;
         padding: 1.2rem 0;
@@ -78,489 +70,179 @@
         font-size: 1.15rem;
         border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .nav-links a:last-child {
-        border-bottom: none;
-    }
-    .nav-links a::after {
-        display: none;
-    }
-    .nav-links a:hover {
-        background-color: rgba(255,255,255,0.08);
-    }
+    .nav-links a:last-child { border-bottom: none; }
+    .nav-links a::after { display: none; }
+    .nav-links a:hover { background-color: rgba(255,255,255,0.08); }
     
-    /* Layout and Container */
-    .container {
-        padding: 0 1rem;
-        max-width: 100%;
-        margin: 0 auto;
-    }
+    /* Layout */
+    .container { padding: 0 1rem; max-width: 100%; margin: 0 auto; }
     
-    /* Services Grid - Improved Symmetry */
-    .services-grid {
+    /* Services and Values Grids - Mobile Single Column */
+    .services-grid, .values-grid-rows { 
+        gap: 1.5rem; 
+        max-width: 400px; 
+        margin: 0 auto; 
+    }
+    .services-row, .values-row, .services-bottom-row, .values-row-bottom {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         max-width: 400px;
         margin: 0 auto;
+        flex-direction: column;
+        align-items: center;
     }
-    .service-card {
+    .service-card, .value-card {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
         text-align: center;
+        padding: 1.5rem;
     }
     
-    /* Services Bottom Row - Better Alignment */
-    .services-bottom-row {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    .services-bottom-row .service-card {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    /* Values Grid - Improved Symmetry */
-    .values-row {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    .value-card {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    /* Values Bottom Row - Better Alignment */
-    .values-row-bottom {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    /* Founders Grid - Improved Symmetry */
+    /* Founders Grid - Mobile 3 Columns */
     .founders-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 400px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        max-width: 100%;
+    }
+    .founder-card { 
+        padding: 1rem; 
+        max-width: 120px; 
         margin: 0 auto;
     }
-    .founder-card {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        text-align: center;
-    }
+    .founder-photo { width: 80px; height: 80px; }
+    .founder-card h3 { font-size: 0.9rem; }
+    .founder-title { font-size: 0.7rem; }
     
-    /* Hero Section */
-    .hero {
-        height: 60vh;
-    }
-    .hero-content {
-        text-align: center;
-        padding: 0 1rem;
-    }
-    .hero-content h1 {
-        font-size: 2.2rem;
-        text-align: center;
-    }
-    .tagline {
-        font-size: 1.1rem;
-        margin-bottom: 1.2rem;
-        text-align: center;
-    }
-    
-    /* Section Spacing and Alignment */
-    .section {
-        padding: 3rem 0;
-        text-align: center;
-    }
-    .section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.2rem;
-        text-align: center;
-    }
-    
-    /* About Section */
-    .about-content {
-        text-align: center;
-        max-width: 100%;
-        padding: 0 1rem;
-    }
+    /* Typography */
+    .hero-content h1 { font-size: 2.2rem; text-align: center; }
+    .tagline { font-size: 1.1rem; margin-bottom: 1.2rem; text-align: center; }
+    .section { padding: 3rem 0; text-align: center; }
+    .section h2 { font-size: 1.5rem; margin-bottom: 1.2rem; text-align: center; }
     
     /* Contact Form */
-    .contact-form {
-        padding: 1rem;
-        gap: 1rem;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    .form-group {
-        text-align: left;
-    }
-    .form-group input,
-    .form-group textarea {
-        font-size: 1rem;
-        padding: 0.7rem 0.8rem;
-        width: 100%;
-    }
-    .contact-form .cta-button {
-        width: 100%;
-        font-size: 1rem;
-        min-height: 44px;
-        text-align: center;
-    }
+    .contact-form { padding: 1rem; gap: 1rem; width: 100%; max-width: 100%; margin: 0 auto; }
+    .form-group { text-align: left; }
+    .form-group input, .form-group textarea { font-size: 1rem; padding: 0.7rem 0.8rem; width: 100%; }
+    .contact-form .cta-button { width: 100%; font-size: 1rem; min-height: 44px; text-align: center; }
     
-    /* Enhanced Footer Mobile Styles */
-    .footer-content {
-        padding: 1rem 1rem 0.8rem 1rem;
-        text-align: center;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-    }
-    .footer-section {
-        align-items: center;
-        text-align: center;
-    }
-    .footer-logo {
-        max-width: 80px;
-        margin: 0 auto;
-    }
-    .footer-tagline {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        text-align: center;
-    }
-    .footer-heading {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        text-align: center;
-    }
-    .footer-heading::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .footer-links {
-        align-items: center;
-        gap: 0.4rem;
-        justify-content: center;
-    }
-    .footer-links a {
-        font-size: 0.8rem;
-        padding: 0.15rem 0;
-        text-align: center;
-    }
-    .footer-social {
-        gap: 0.6rem;
-        margin-top: 0.5rem;
-        justify-content: center;
-    }
-    .social-link {
-        width: 28px;
-        height: 28px;
-        margin: 0 auto;
-    }
-    .social-link svg {
-        width: 14px;
-        height: 14px;
-    }
-    .footer-contact {
-        gap: 0.5rem;
-        text-align: center;
-    }
-    .contact-item {
-        font-size: 0.75rem;
-        gap: 0.5rem;
-        text-align: center;
-        justify-content: center;
-    }
-    .contact-icon {
-        width: 14px;
-        height: 14px;
-    }
-    .footer-bottom-content {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-    .footer-legal {
-        gap: 0.5rem;
-        justify-content: center;
-    }
-    .footer-copyright {
-        font-size: 0.75rem;
-        text-align: center;
-    }
-    .legal-link {
-        font-size: 0.7rem;
-        text-align: center;
-    }
-    .footer-waves {
-        height: 60px;
-    }
+    /* Footer */
+    .footer-content { padding: 1rem 1rem 0.8rem 1rem; text-align: center; }
+    .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+    .footer-section { align-items: center; text-align: center; }
+    .footer-logo { max-width: 80px; margin: 0 auto; }
+    .footer-tagline { font-size: 0.9rem; line-height: 1.4; text-align: center; }
+    .footer-heading { font-size: 1rem; margin-bottom: 0.5rem; text-align: center; }
+    .footer-heading::after { left: 50%; transform: translateX(-50%); }
+    .footer-links { align-items: center; gap: 0.4rem; justify-content: center; }
+    .footer-links a { font-size: 0.8rem; padding: 0.15rem 0; text-align: center; }
+    .footer-social { gap: 0.6rem; margin-top: 0.5rem; justify-content: center; }
+    .social-link { width: 28px; height: 28px; margin: 0 auto; }
+    .social-link svg { width: 14px; height: 14px; }
+    .footer-contact { gap: 0.5rem; text-align: center; }
+    .contact-item { font-size: 0.75rem; gap: 0.5rem; text-align: center; justify-content: center; }
+    .contact-icon { width: 14px; height: 14px; }
+    .footer-bottom-content { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .footer-legal { gap: 0.5rem; justify-content: center; }
+    .footer-copyright { font-size: 0.75rem; text-align: center; }
+    .legal-link { font-size: 0.7rem; text-align: center; }
+    .footer-waves { height: 60px; }
     
     /* Images and Text */
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-    p, li, label {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        text-align: center;
-    }
-}
-
-/* Typography and Layout Adjustments */
-@media (max-width: 768px) {
-    html, body {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-    
-    .nav-links a,
-    .section h2,
-    .service-card h3,
-    .value-card h3 {
-        font-size: 1.1rem;
-        line-height: 1.3;
-    }
-    
-    p, li {
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-    
-    .section {
-        padding: 2.5rem 0;
-    }
-    
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .cta-button {
-        font-size: 0.95rem;
-        padding: 0.8rem 1.5rem;
-        min-height: 44px;
-    }
+    img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    p, li, label { font-size: 0.95rem; line-height: 1.5; text-align: center; }
 }
 
 @media (max-width: 576px) {
-    .container {
-        padding: 0 0.8rem;
+    .container { padding: 0 0.8rem; max-width: 100%; }
+    .hero { height: 50vh; }
+    .hero-content h1 { font-size: 1.8rem; text-align: center; }
+    .tagline { font-size: 1rem; text-align: center; }
+    .section { padding: 2rem 0; text-align: center; }
+    .section h2 { font-size: 1.3rem; text-align: center; }
+    .lead-text { font-size: 1rem; }
+    .service-card, .value-card { 
+        padding: 1.5rem; 
+        text-align: center; 
+        width: 100%; 
+        max-width: 100%; 
+        margin: 0 auto; 
+    }
+    .service-card h3, .value-card h3 { font-size: 1rem; text-align: center; }
+    .service-card ul { font-size: 0.9rem; }
+    
+    /* Founders Grid - Small Mobile 2 Columns */
+    .founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
         max-width: 100%;
     }
-    
-    .hero {
-        height: 50vh;
-    }
-    
-    .hero-content h1 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-    
-    .tagline {
-        font-size: 1rem;
-        text-align: center;
-    }
-    
-    .section {
-        padding: 2rem 0;
-        text-align: center;
-    }
-    
-    .section h2 {
-        font-size: 1.3rem;
-        text-align: center;
-    }
-    
-    .service-card,
-    .value-card {
-        padding: 1.5rem;
-        text-align: center;
-        width: 100%;
-        max-width: 100%;
+    .founder-card { 
+        padding: 0.8rem; 
+        max-width: 100px; 
         margin: 0 auto;
     }
+    .founder-photo { width: 60px; height: 60px; }
+    .founder-card h3 { font-size: 0.8rem; }
+    .founder-title { font-size: 0.6rem; }
     
-    .service-card h3,
-    .value-card h3 {
-        font-size: 1rem;
-        text-align: center;
-    }
-    
-    .contact-form {
-        padding: 1rem;
-        text-align: center;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 0.7rem 0.8rem;
-        font-size: 0.9rem;
-        width: 100%;
-    }
-    
-    .footer-content {
-        padding: 0.8rem 0.8rem 0.6rem 0.8rem;
-        text-align: center;
-    }
-    
-    .footer-grid {
-        gap: 1rem;
-        text-align: center;
-    }
-    
-    .footer-logo {
-        max-width: 70px;
-        margin: 0 auto;
-    }
-    
-    .footer-heading {
-        font-size: 0.9rem;
-        text-align: center;
-    }
-    
-    .footer-links a {
-        font-size: 0.75rem;
-        text-align: center;
-    }
-    
-    .contact-item {
-        font-size: 0.7rem;
-        text-align: center;
-        justify-content: center;
-    }
-    
-    .social-link {
-        width: 24px;
-        height: 24px;
-        margin: 0 auto;
-    }
-    
-    .social-link svg {
-        width: 12px;
-        height: 12px;
-    }
-    
-    .footer-copyright {
-        font-size: 0.7rem;
-        text-align: center;
-    }
-    
-    .legal-link {
-        font-size: 0.65rem;
-        text-align: center;
-    }
-    
-    .footer-waves {
-        height: 40px;
-    }
-    
-    p, li, label {
-        font-size: 0.85rem;
-        text-align: center;
-    }
+    .contact-form { padding: 1rem; text-align: center; }
+    .form-group input, .form-group textarea { padding: 0.7rem 0.8rem; font-size: 0.9rem; width: 100%; }
+    .footer-content { padding: 0.8rem 0.8rem 0.6rem 0.8rem; text-align: center; }
+    .footer-grid { gap: 1rem; text-align: center; }
+    .footer-logo { max-width: 70px; margin: 0 auto; }
+    .footer-heading { font-size: 0.9rem; text-align: center; }
+    .footer-links a { font-size: 0.75rem; text-align: center; }
+    .contact-item { font-size: 0.7rem; text-align: center; justify-content: center; }
+    .social-link { width: 24px; height: 24px; margin: 0 auto; }
+    .social-link svg { width: 12px; height: 12px; }
+    .footer-copyright { font-size: 0.7rem; text-align: center; }
+    .legal-link { font-size: 0.65rem; text-align: center; }
+    .footer-waves { height: 40px; }
+    p, li, label { font-size: 0.85rem; text-align: center; }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 0.6rem;
-        max-width: 100%;
-    }
+    .container { padding: 0 0.6rem; max-width: 100%; }
+    .hero-content h1 { font-size: 1.6rem; text-align: center; }
+    .tagline { font-size: 0.9rem; text-align: center; }
+    .section h2 { font-size: 1.2rem; text-align: center; }
     
-    .hero-content h1 {
-        font-size: 1.6rem;
-        text-align: center;
-    }
-    
-    .tagline {
-        font-size: 0.9rem;
-        text-align: center;
-    }
-    
-    .section h2 {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-    
-    .footer-content {
-        padding: 0.6rem 0.6rem 0.4rem 0.6rem;
-        text-align: center;
-    }
-    
-    .footer-logo {
-        max-width: 60px;
+    /* Founders Grid - Extra Small Mobile Single Column */
+    .founders-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.6rem;
+        max-width: 300px;
         margin: 0 auto;
     }
-    
-    .footer-heading {
-        font-size: 0.85rem;
-        text-align: center;
-    }
-    
-    .footer-links a {
-        font-size: 0.7rem;
-        text-align: center;
-    }
-    
-    .contact-item {
-        font-size: 0.65rem;
-        text-align: center;
-        justify-content: center;
-    }
-    
-    .social-link {
-        width: 22px;
-        height: 22px;
+    .founder-card { 
+        padding: 0.6rem; 
+        max-width: 200px; 
         margin: 0 auto;
     }
+    .founder-photo { width: 50px; height: 50px; }
+    .founder-card h3 { font-size: 0.7rem; }
+    .founder-title { font-size: 0.5rem; }
     
-    .social-link svg {
-        width: 11px;
-        height: 11px;
-    }
+    .footer-content { padding: 0.6rem 0.6rem 0.4rem 0.6rem; text-align: center; }
+    .footer-logo { max-width: 60px; margin: 0 auto; }
+    .footer-heading { font-size: 0.85rem; text-align: center; }
+    .footer-links a { font-size: 0.7rem; text-align: center; }
+    .contact-item { font-size: 0.65rem; text-align: center; justify-content: center; }
+    .social-link { width: 22px; height: 22px; margin: 0 auto; }
+    .social-link svg { width: 11px; height: 11px; }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
-    .hero {
-        height: 40vh;
-    }
-    
-    .nav-links {
-        padding: 1rem 1.5rem;
-        gap: 1rem;
-    }
-    
-    .footer-content {
-        padding: 0.5rem 1rem;
-    }
-    
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
+    .hero { height: 40vh; }
+    .nav-links { padding: 1rem 1.5rem; gap: 1rem; }
+    .footer-content { padding: 0.5rem 1rem; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 }
 
 /* High DPI Display Support */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .footer-logo,
-    .main-logo,
-    .founder-photo {
+    .footer-logo, .main-logo, .founder-photo {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
@@ -568,15 +250,6 @@
 
 /* Touch Device Optimizations */
 @media (hover: none) and (pointer: coarse) {
-    .footer-links a:hover,
-    .social-link:hover,
-    .legal-link:hover {
-        transform: none;
-    }
-    
-    .footer-links a:active,
-    .social-link:active,
-    .legal-link:active {
-        transform: scale(0.95);
-    }
-} 
+    .footer-links a:hover, .social-link:hover, .legal-link:hover { transform: none; }
+    .footer-links a:active, .social-link:active, .legal-link:active { transform: scale(0.95); }
+}
